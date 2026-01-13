@@ -10,3 +10,4 @@
   <p>Om du ikke blir videresendt automatisk, <a href="https://link-til-claude-siden-din.com">klikk her</a>.</p>
 </body>
 </html>
+
