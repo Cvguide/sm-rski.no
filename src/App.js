@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 
 export default function App() {
-  const [location, setLocation] = useState({ lat: 59.91, lon: 10.75, name: 'Oslo' });
+  const [location] = useState({ lat: 59.91, lon: 10.75, name: 'Oslo' });
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [currentPage, setCurrentPage] = useState('home');
 
   useEffect(() => {
     fetchWeather(location.lat, location.lon);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+  
   const fetchWeather = async (lat, lon) => {
     try {
       const response = await fetch(
@@ -243,8 +243,20 @@ export default function App() {
     },
     button: {
       flex: 1,
-      background: currentPage === 'home' ? 'white' : 'rgba(255,255,255,0.2)',
-      color: currentPage === 'home' ? '#334155' : 'white',
+      background: 'white',
+      color: '#334155',
+      padding: '16px',
+      borderRadius: '12px',
+      border: 'none',
+      fontWeight: 'bold',
+      fontSize: '16px',
+      cursor: 'pointer',
+      transition: 'all 0.2s'
+    },
+    buttonInactive: {
+      flex: 1,
+      background: 'rgba(255,255,255,0.2)',
+      color: 'white',
       padding: '16px',
       borderRadius: '12px',
       border: 'none',
@@ -354,7 +366,7 @@ export default function App() {
           <button style={styles.button}>
             🎿 Smøring
           </button>
-          <button style={{ ...styles.button, background: 'rgba(255,255,255,0.2)', color: 'white' }}>
+          <button style={styles.buttonInactive}>
             🏔️ Løyper
           </button>
         </div>
