@@ -409,31 +409,57 @@ export default function App() {
 
     if (temp > 0) {
       return {
-        condition: 'Våte forhold / Smelting',
-        products: ['CH7X (Rød)', 'CH8X (Gul)', 'FC8X (Gul fluor)'],
-        tip: 'Bruk varmt voks. Smelteforhold krever spesielle løsninger.',
-        color: '#eab308'
+        category: 'Hardvoks',
+        name: 'Rød Spesial',
+        letter: 'V',
+        condition: 'Våt gammel snø',
+        tip: 'Påfør i 2-4 lag. Kork godt mellom lag. God mot våt snø og fuktige forhold.',
+        color: '#ef4444'
+      };
+    } else if (temp >= -2) {
+      return {
+        category: 'Hardvoks',
+        name: 'Rød',
+        letter: 'V',
+        condition: 'Fuktig snø rundt 0°C',
+        tip: 'Påfør i 2-3 lag. Kork grundig mellom hvert lag for best feste.',
+        color: '#dc2626'
       };
     } else if (temp >= -5) {
       return {
-        condition: 'Fuktig snø',
-        products: ['VR55 (Lilla)', 'VR45 (Blå)'],
-        tip: 'Gode forhold for langrenn. Perfekt for klassisk stil.',
+        category: 'Hardvoks',
+        name: 'Lilla Spesial',
+        letter: 'VP',
+        condition: 'Fuktig nysnø',
+        tip: 'Påfør i 2-3 lag, kork godt mellom lag. Ideelt for fuktig nysnø.',
         color: '#a855f7'
       };
-    } else if (temp >= -12) {
+    } else if (temp >= -10) {
       return {
-        condition: 'Tørr snø',
-        products: ['VR40 (Blå)', 'VR35 (Turkis)'],
-        tip: 'Utmerkede forhold! Typisk norsk vintervær.',
+        category: 'Hardvoks',
+        name: 'Blå Spesial',
+        letter: 'VB',
+        condition: 'Fin kornete snø',
+        tip: 'Påfør i 2-3 lag. Godt allround-voks for temperert vintervær.',
         color: '#3b82f6'
+      };
+    } else if (temp >= -15) {
+      return {
+        category: 'Hardvoks',
+        name: 'Grønn',
+        letter: 'VG',
+        condition: 'Kald fin snø',
+        tip: 'Påfør i 2-3 lag. Utmerket for kalde forhold med fin kornstruktur.',
+        color: '#22c55e'
       };
     } else {
       return {
-        condition: 'Veldig kaldt',
-        products: ['VR30 (Grønn)', 'VR25 (Lys grønn)', 'FC78S (Polar fluor)'],
-        tip: 'Ekstremt kalde forhold. Bruk spesialvoks.',
-        color: '#22c55e'
+        category: 'Hardvoks',
+        name: 'Grønn Spesial',
+        letter: 'VGS',
+        condition: 'Veldig kald fin snø',
+        tip: 'Påfør i 3-4 lag for ekstra kalde forhold. Kork grundig.',
+        color: '#16a34a'
       };
     }
   };
@@ -928,10 +954,10 @@ export default function App() {
           justifyContent: 'space-between'
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <span style={{ fontSize: '40px' }}>⛰️</span>
+            <span style={{ fontSize: '40px' }}>⛷️</span>
             <div>
-              <h1 style={{ fontSize: '30px', fontWeight: 'bold', margin: 0 }}>Smøreguide</h1>
-              <p style={{ fontSize: '14px', color: '#cbd5e1', margin: 0 }}>Din skismøringsassistent</p>
+              <h1 style={{ fontSize: '28px', fontWeight: 'bold', margin: 0, letterSpacing: '1px' }}>DAGENS SMØRETIPS</h1>
+              <p style={{ fontSize: '14px', color: '#cbd5e1', margin: 0 }}>Profesjonell festevoks-guide</p>
             </div>
           </div>
           
@@ -953,7 +979,7 @@ export default function App() {
           </button>
         </div>
         
-        {/* About Menu (same as trails page) */}
+        {/* About Menu */}
         {showAboutMenu && (
           <>
             <div 
@@ -1025,8 +1051,8 @@ export default function App() {
               <div style={{ padding: '0 24px 24px', overflowY: 'auto', flex: 1 }}>
                 {aboutMenuTab === 'om' && (
                   <div style={{ color: '#4b5563', fontSize: '14px', lineHeight: '1.6' }}>
-                    <p><strong style={{ color: '#1f2937' }}>Smøreguide</strong> hjelper deg med å finne riktig skismøring basert på temperatur og værforhold, samt oppdage flotte skiløyper i hele Norge.</p>
-                    <p>Appen gir deg værmeldinger, smøringsanbefalinger basert på Swix sine retningslinjer, og direktelenker til detaljerte løypebeskrivelser.</p>
+                    <p><strong style={{ color: '#1f2937' }}>Dagens Smøretips</strong> gir deg profesjonelle anbefalinger for festevoks basert på temperatur og værforhold.</p>
+                    <p>Appen henter sanntidsdata fra Meteorologisk institutt og gir deg Swix sine anbefalinger.</p>
                     <div style={{ paddingTop: '12px', borderTop: '1px solid #e5e7eb', marginTop: '12px' }}>
                       <p style={{ fontSize: '12px', color: '#6b7280', fontStyle: 'italic' }}>
                         <strong>Ansvarsfraskrivelse:</strong> Alle råd og anbefalinger er veiledende. Sjekk alltid lokale forhold før du drar ut.
@@ -1067,7 +1093,7 @@ export default function App() {
                   <div style={{ color: '#4b5563', fontSize: '14px', lineHeight: '1.6' }}>
                     <div style={{ marginBottom: '16px' }}>
                       <h3 style={{ fontWeight: 'bold', color: '#1f2937', marginBottom: '8px', fontSize: '14px' }}>Datainnsamling</h3>
-                      <p>Smøreguide samler <strong>ikke inn personopplysninger</strong>.</p>
+                      <p>Dagens Smøretips samler <strong>ikke inn personopplysninger</strong>.</p>
                     </div>
                     <div style={{ paddingTop: '12px', borderTop: '1px solid #e5e7eb', marginBottom: '16px' }}>
                       <h3 style={{ fontWeight: 'bold', color: '#1f2937', marginBottom: '8px', fontSize: '14px' }}>Lokasjonsdata</h3>
@@ -1135,31 +1161,31 @@ export default function App() {
           </div>
         ) : (
           <>
+            {/* Location card */}
             <div style={{
               background: 'white',
               borderRadius: '16px',
-              padding: '24px',
+              padding: '20px',
               border: '2px solid #e2e8f0',
               boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
               marginBottom: '16px'
             }}>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <div style={{ background: '#f1f5f9', padding: '8px', borderRadius: '8px' }}>
-                    <span style={{ fontSize: '20px' }}>📍</span>
-                  </div>
-                  <span style={{ fontSize: '18px', fontWeight: '600', color: '#1f2937' }}>{location.name}</span>
+                  <span style={{ fontSize: '24px', color: '#64748b' }}>📍</span>
+                  <span style={{ fontSize: '20px', fontWeight: '600', color: '#1f2937' }}>{location.name}</span>
+                  <span style={{ fontSize: '24px', color: '#e5e7eb', cursor: 'pointer' }}>⭐</span>
                 </div>
                 <button
                   onClick={() => setShowAddLocation(!showAddLocation)}
                   style={{
-                    background: '#2563eb',
-                    color: 'white',
+                    background: 'transparent',
+                    color: '#1f2937',
                     padding: '8px',
                     borderRadius: '8px',
                     border: 'none',
                     cursor: 'pointer',
-                    fontSize: '20px',
+                    fontSize: '24px',
                     fontWeight: 'bold'
                   }}
                 >
@@ -1168,7 +1194,7 @@ export default function App() {
               </div>
 
               {showAddLocation && (
-                <div style={{ marginBottom: '16px', position: 'relative' }}>
+                <div style={{ marginTop: '16px', position: 'relative' }}>
                   <input
                     type="text"
                     placeholder="Søk etter sted..."
@@ -1223,97 +1249,122 @@ export default function App() {
                   )}
                 </div>
               )}
+            </div>
 
+            {/* Weather card */}
+            <div style={{
+              background: 'white',
+              borderRadius: '16px',
+              padding: '24px',
+              border: '2px solid #e2e8f0',
+              boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+              marginBottom: '16px'
+            }}>
+              <h2 style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '16px', color: '#1f2937', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                ☁️ Værforhold
+              </h2>
+              
               <div style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(2, 1fr)',
-                gap: '16px',
-                marginBottom: '24px'
+                gridTemplateColumns: 'repeat(3, 1fr)',
+                gap: '12px'
               }}>
                 <div style={{
-                  background: 'linear-gradient(135deg, #dbeafe, #bfdbfe)',
-                  padding: '16px',
+                  background: '#ffe4e6',
+                  padding: '24px 16px',
                   borderRadius: '12px',
-                  border: '2px solid #93c5fd'
+                  textAlign: 'center'
                 }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                    <span style={{ fontSize: '20px' }}>🌡️</span>
-                    <span style={{ fontSize: '14px', fontWeight: 'bold', color: '#1e3a8a' }}>Temperatur</span>
+                  <div style={{ fontSize: '32px', marginBottom: '8px' }}>🌡️</div>
+                  <div style={{ fontSize: '28px', fontWeight: 'bold', color: '#1f2937', marginBottom: '4px' }}>
+                    {weather.temperature}°C
                   </div>
-                  <div style={{ fontSize: '32px', fontWeight: 'bold', color: '#1e3a8a' }}>{weather.temperature}°C</div>
-                  <div style={{ fontSize: '12px', color: '#1e40af', marginTop: '4px' }}>Nedbør: {weather.precipitation} mm</div>
+                  <div style={{ fontSize: '13px', color: '#6b7280', fontWeight: '500' }}>Temperatur</div>
                 </div>
 
                 <div style={{
-                  background: 'linear-gradient(135deg, #dbeafe, #bfdbfe)',
-                  padding: '16px',
+                  background: '#dbeafe',
+                  padding: '24px 16px',
                   borderRadius: '12px',
-                  border: '2px solid #93c5fd'
+                  textAlign: 'center'
                 }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                    <span style={{ fontSize: '20px' }}>💨</span>
-                    <span style={{ fontSize: '14px', fontWeight: 'bold', color: '#1e3a8a' }}>Vind</span>
+                  <div style={{ fontSize: '32px', marginBottom: '8px' }}>☁️</div>
+                  <div style={{ fontSize: '28px', fontWeight: 'bold', color: '#1f2937', marginBottom: '4px' }}>
+                    {weather.precipitation} mm
                   </div>
-                  <div style={{ fontSize: '32px', fontWeight: 'bold', color: '#1e3a8a' }}>{weather.windSpeed} m/s</div>
-                  <div style={{ fontSize: '12px', color: '#1e40af', marginTop: '4px' }}>Fuktighet: {weather.humidity}%</div>
+                  <div style={{ fontSize: '13px', color: '#6b7280', fontWeight: '500' }}>Nedbør</div>
+                </div>
+
+                <div style={{
+                  background: '#ccfbf1',
+                  padding: '24px 16px',
+                  borderRadius: '12px',
+                  textAlign: 'center'
+                }}>
+                  <div style={{ fontSize: '32px', marginBottom: '8px' }}>💨</div>
+                  <div style={{ fontSize: '28px', fontWeight: 'bold', color: '#1f2937', marginBottom: '4px' }}>
+                    {weather.windSpeed} m/s
+                  </div>
+                  <div style={{ fontSize: '13px', color: '#6b7280', fontWeight: '500' }}>Vind</div>
                 </div>
               </div>
             </div>
 
+            {/* Wax recommendation card */}
             {recommendation && (
               <div style={{
-                background: 'white',
+                background: recommendation.color,
                 borderRadius: '16px',
                 padding: '24px',
-                border: '2px solid #e2e8f0',
-                boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
+                border: '3px solid white',
+                boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+                color: 'white'
               }}>
-                <h2 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '16px', color: '#1f2937' }}>Smøringsanbefaling</h2>
-                
-                <div style={{
-                  background: recommendation.color,
-                  color: 'white',
-                  padding: '16px',
-                  borderRadius: '12px',
-                  marginBottom: '16px'
-                }}>
-                  <div style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '8px' }}>{recommendation.condition}</div>
-                  <div style={{ fontSize: '14px', opacity: 0.9 }}>{recommendation.tip}</div>
-                </div>
-
-                <div style={{ marginTop: '16px' }}>
-                  <h3 style={{ fontWeight: 'bold', color: '#1f2937', marginBottom: '8px' }}>Anbefalte produkter (Swix):</h3>
-                  {recommendation.products.map((product, index) => (
-                    <div
-                      key={index}
-                      style={{
-                        background: '#f8fafc',
-                        padding: '12px',
-                        borderRadius: '8px',
-                        border: '1px solid #e2e8f0',
-                        fontWeight: '600',
-                        color: '#1f2937',
-                        marginBottom: '8px'
-                      }}
-                    >
-                      {product}
+                <div style={{ display: 'flex', gap: '20px', alignItems: 'flex-start' }}>
+                  <div style={{
+                    background: 'white',
+                    borderRadius: '8px',
+                    padding: '16px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    minWidth: '100px'
+                  }}>
+                    <div style={{ fontSize: '40px', fontWeight: 'bold', color: '#1f2937', lineHeight: 1 }}>
+                      {recommendation.letter}
                     </div>
-                  ))}
-                </div>
-
-                <div style={{
-                  marginTop: '16px',
-                  padding: '16px',
-                  background: '#dbeafe',
-                  borderRadius: '8px',
-                  border: '1px solid #93c5fd'
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
-                    <span style={{ fontSize: '20px', flexShrink: 0 }}>💡</span>
-                    <p style={{ fontSize: '14px', color: '#1e3a8a', margin: 0 }}>
-                      <strong>Tips:</strong> Test alltid smøringen på en liten del av skiene først. 
-                      Værforholdene kan variere lokalt.
-                    </p>
+                    <div style={{ 
+                      marginTop: '4px',
+                      padding: '4px 12px',
+                      background: '#ef4444',
+                      color: 'white',
+                      fontSize: '11px',
+                      fontWeight: 'bold',
+                      borderRadius: '4px'
+                    }}>SWIX</div>
+                  </div>
+                  
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontSize: '13px', fontWeight: 'bold', marginBottom: '4px', opacity: 0.9 }}>
+                      {recommendation.category}
+                    </div>
+                    <h2 style={{ fontSize: '32px', fontWeight: 'bold', margin: '0 0 8px 0' }}>
+                      {recommendation.name}
+                    </h2>
+                    <div style={{ fontSize: '15px', marginBottom: '16px', opacity: 0.95 }}>
+                      {recommendation.condition}
+                    </div>
+                    
+                    <div style={{
+                      background: 'rgba(0,0,0,0.15)',
+                      borderRadius: '8px',
+                      padding: '16px'
+                    }}>
+                      <div style={{ fontWeight: 'bold', marginBottom: '8px', fontSize: '14px' }}>Smøretips:</div>
+                      <div style={{ fontSize: '14px', lineHeight: '1.6' }}>
+                        {recommendation.tip}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
