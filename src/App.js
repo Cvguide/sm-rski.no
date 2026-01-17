@@ -957,7 +957,7 @@ export default function App() {
             <span style={{ fontSize: '40px' }}>⛷️</span>
             <div>
               <h1 style={{ fontSize: '28px', fontWeight: 'bold', margin: 0, letterSpacing: '1px' }}>DAGENS SMØRETIPS</h1>
-              <p style={{ fontSize: '14px', color: '#cbd5e1', margin: 0 }}>Profesjonell festevoks-guide</p>
+              <p style={{ fontSize: '14px', color: '#cbd5e1', margin: 0 }}>Din smøreassistent</p>
             </div>
           </div>
           
