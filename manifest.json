@@ -1,0 +1,8 @@
+{
+  "short_name": "Smøreguide",
+  "name": "Smøreguide - Skismøring",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#475569",
+  "background_color": "#ffffff"
+}
