@@ -308,7 +308,7 @@ export default function App() {
           </div>
 
           <div style={styles.weatherGrid}>
-            <div style={weatherBox}>
+            <div style={styles.weatherBox}>
               <div style={styles.weatherLabel}>🌡️ Temperatur</div>
               <div style={styles.weatherValue}>{weather.temperature}°C</div>
               <div style={styles.weatherSub}>Nedbør: {weather.precipitation} mm</div>
